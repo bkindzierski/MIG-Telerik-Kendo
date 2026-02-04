@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+.header{
+    height: 110px;
+    position:sticky;
+    top:0;
+    z-index:3;
+    padding-left: 7px;
+    background-color: #491320;
+}
+
+.header .nav-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    color:#fff;
+}
+
+.header .menu-button{
+    flex: 0 0 50px;
+    text-align: center;
+}
+
+.header .title{
+    display:flex;
+    flex: 1 0 auto
+}
+
+.header .menuDropdown{
+    width:240px;
+    padding-right: 20px;
+}
+
+.resources{
+    font-weight: 500;
+}
+
+.topnav{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    justify-content: flex-start;
+    padding-left: 50px;
+    font-size:2em;
+    font-style: italic;
+    background-color: #491320;
+}
+.imgBar{
+  background-color: #491320;   
+  background-repeat: repeat-x;
+
+   /* Specify the image you want to repeat */
+  // background-image: url('https://secure.merchantsgroup.com:84/images/migmnuproc/agents_r2_c7_ML_v2.jpg');
+
+  /* Crucially, repeat the image only along the x-axis (horizontally) */
+  background-repeat: repeat-x;
+
+  /* Optional: align the image */
+  background-position: center;
+}

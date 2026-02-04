@@ -1,0 +1,33 @@
+.contanier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+   
+}
+
+.example {
+  display: table;
+  margin: auto;
+  width: 975px;
+  margin-top:30px
+}
+.k-stepper {
+  align-self: center;
+}
+.k-step {
+  pointer-events: none;
+}
+.k-button.prev {
+  margin-right: 16px;
+}
+.k-form-separator {
+  margin-top: 40px;
+}
+.k-buttons-end {
+  justify-content: space-between;
+  align-content: center;
+}
+.page {
+  align-self: center;
+}

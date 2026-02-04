@@ -1,0 +1,50 @@
+<div class="contanier">
+
+    <!--kendo app bar -->
+    <!-- <div class="header">        
+        <app-appbar></app-appbar>
+    </div> -->
+
+     <!-- <div class="header">
+          <kendo-label>Quote Information</kendo-label>
+    </div>
+     -->
+    <div class="example">
+      <kendo-stepper
+        #stepper
+        [steps]="steps"
+        stepType="full"
+        [(currentStep)]="currentStep">
+      </kendo-stepper>
+      <form class="k-form k-form-md" [formGroup]="form">
+        @if (currentStep === 0) {
+          <app-quoteinfo [QuoteInfoDetails]="currentGroup"></app-quoteinfo>          
+        } @if (currentStep === 1) {
+          <app-liability [liabilityDetails]="currentGroup"> </app-liability>         
+        } @if (currentStep === 2) {
+          <!-- <app-paymentdetails [paymentDetails]="currentGroup"> </app-paymentdetails> -->
+          <!-- <app-paymentdetails> </app-paymentdetails> -->
+        }
+
+        <span class="k-form-separator"></span>
+
+        <div class="k-form-buttons k-buttons-end">
+          <span class="page">Step {{ currentStep + 1 }} of 3</span>
+          <div>
+            @if (currentStep !== 0) {
+                <button class="prev" kendoButton (click)="prev()">Previous</button>
+            } 
+            @if (currentStep !== 2) {
+                <button kendoButton themeColor="primary" (click)="next()">Next</button>
+            } 
+            @if (currentStep === 2) {
+                <button kendoButton themeColor="primary" (click)="submit()">Submit</button>
+            }
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- end stepper example -->
+</div>
+
+
