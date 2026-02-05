@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewChild } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
@@ -6,6 +6,7 @@ import { KENDO_ICONS, SVGIcon } from "@progress/kendo-angular-icons";
 import { KENDO_DROPDOWNS } from "@progress/kendo-angular-dropdowns";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
 import {
+  DrawerComponent,
   DrawerItem,
   DrawerSelectEvent,
   KENDO_LAYOUT,
@@ -66,6 +67,11 @@ export class App {
   constructor(private routes: RouterOutlet, private router: Router){
 
 
+  }
+  
+  @ViewChild('drawer') drawer: DrawerComponent;
+  public onExpandedChange(e: boolean): void {
+      this.drawer.expanded = true; // Forces it to stay open
   }
 
   public onSelect(ev: DrawerSelectEvent): void {

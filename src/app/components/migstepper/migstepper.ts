@@ -12,10 +12,11 @@ import { KENDO_LABEL } from "@progress/kendo-angular-label";
 //import { Appbar } from '../appbar/appbar';
 import { Quoteinfo } from './quoteinfo/quoteinfo';
 import { Liability } from './liability/liability';
+import { Locations } from './locations/locations';
 
 @Component({
   selector: 'app-migstepper',
-  imports: [Liability,Quoteinfo,StepperComponent,ReactiveFormsModule,KENDO_BUTTONS,KENDO_LAYOUT,KENDO_INPUTS, KENDO_LABEL],
+  imports: [Locations,Liability,Quoteinfo,StepperComponent,ReactiveFormsModule,KENDO_BUTTONS,KENDO_LAYOUT,KENDO_INPUTS, KENDO_LABEL],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './migstepper.html',
   styleUrl: './migstepper.scss',
@@ -66,10 +67,10 @@ export class Migstepper {
   }
 
   public next(): void {
-    //if (this.currentGroup.valid && this.currentStep !== this.steps.length) {
+    if (this.currentGroup.valid && this.currentStep !== this.steps.length) {
       this.currentStep += 1;
       return;
-    //}
+    }
     this.currentGroup.markAllAsTouched();
     this.stepper.validateSteps();
   }

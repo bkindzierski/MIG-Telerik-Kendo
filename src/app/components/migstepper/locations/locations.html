@@ -1,0 +1,44 @@
+<!-- <p>locations works!</p> -->
+<ng-container [formGroup]="locationDetails">
+    <div class="wrap">
+        <kendo-formfield class="card-number">
+            <kendo-label [for]="cardNumber" text="Card Number"></kendo-label>
+            <kendo-maskedtextbox
+                #cardNumber
+                formControlName="cardNumber"
+                [mask]="mask">
+            </kendo-maskedtextbox>
+            <kendo-formerror>Card Number is required format</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield>
+            <kendo-label [for]="cvc" text="CVC Number"></kendo-label>
+            <kendo-maskedtextbox #cvc formControlName="cvc" [mask]="cvcMask">
+            </kendo-maskedtextbox>
+
+            <kendo-formhint>The last 3 digits on the back</kendo-formhint>
+            <kendo-formerror>Card CVC Number is required</kendo-formerror>
+        </kendo-formfield>
+    </div>
+
+    <kendo-formfield>
+        <kendo-label [for]="expiration" text="Expiration Date"></kendo-label>
+        <kendo-dateinput
+            #expiration
+            formControlName="expirationDate">
+        </kendo-dateinput>
+
+        <kendo-formerror>Expiration Date is required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="cardHolder" text="Card Holder Name"></kendo-label>
+        <kendo-textbox
+            formControlName="cardHolder"
+            #cardHolder
+            [clearButton]="true">
+        </kendo-textbox>
+        <kendo-formerror>Card Holder Name is required</kendo-formerror>
+    </kendo-formfield>
+
+</ng-container>

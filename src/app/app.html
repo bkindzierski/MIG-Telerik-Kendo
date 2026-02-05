@@ -3,8 +3,8 @@
   <!-- <img src="https://secure.merchantsgroup.com:84/images/migmnuproc/agents_r1_c1.jpg">  -->
 
     <div class="nav-container">
-      <img src="https://secure.merchantsgroup.com:84/images/migmnuproc/agents_r2_c1.jpg"> 
-
+      <!-- <img src="https://secure.merchantsgroup.com:84/images/migmnuproc/agents_r2_c1.jpg">  -->
+      <img src="agents_r2_c1_SM.jpg">
       <div class="menu-button">
         <button
           kendoButton
@@ -27,20 +27,23 @@
       </div>
     </div>
  </div>
-<kendo-drawer-container>
-      <kendo-drawer
-        #drawer
-        [items]="items"
-        mode="push"
-        [mini]="false"
-        [expanded]="true"
-        (select)="onSelect($event)">
-      </kendo-drawer>
-      <kendo-drawer-content>
-        <router-outlet/>
-        <!-- <my-content [selectedItem]="selected"></my-content> -->
-      </kendo-drawer-content>
+ <div class="migdrawer">
+  <kendo-drawer-container>
+        <kendo-drawer
+          #drawer
+          [items]="items"
+          mode="push"
+          [mini]="false"
+          [expanded]="true"
+          (expandedChange)="onExpandedChange($event)"
+          (select)="onSelect($event)">
+        </kendo-drawer>
+        <kendo-drawer-content>
+          <router-outlet/>
+          <!-- <my-content [selectedItem]="selected"></my-content> -->
+        </kendo-drawer-content>
 </kendo-drawer-container>
+</div>
 <!-- <div>
   <h3>{{ title() }}</h3>
 </div>
