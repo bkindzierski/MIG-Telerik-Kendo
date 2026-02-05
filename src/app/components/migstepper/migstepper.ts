@@ -50,7 +50,7 @@ export class Migstepper {
       gender: new FormControl(null, [Validators.required]),
       about: new FormControl(""),
     }),
-    paymentDetails: new FormGroup({
+    locationDetails: new FormGroup({
       cardNumber: new FormControl("", Validators.required),
       cvc: new FormControl("", [
         Validators.required,
@@ -117,7 +117,7 @@ export class Migstepper {
       validate: this.shouldValidate,
     },
     {
-      label: "Payment Details",
+      label: "Location Details",
       isValid: this.isStepValid,
       validate: this.shouldValidate,
     },

@@ -16,6 +16,7 @@ export class Locations {
   @Input() public locationDetails: FormGroup;  
   public mask: string = "0000-0000-0000-0000";
   public cvcMask: string = "000"
+  
   constructor(){}
 
   ngOnInit(){}
