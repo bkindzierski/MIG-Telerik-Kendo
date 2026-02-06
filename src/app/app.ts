@@ -69,19 +69,32 @@ export class App {
 
   }
   
-  @ViewChild('drawer') drawer: DrawerComponent;
-  public onExpandedChange(e: boolean): void {
-      this.drawer.expanded = true; // Forces it to stay open
-  }
+  //in html -> (expandedChange)="onExpandedChange($event)"
+  // @ViewChild('drawer') drawer: DrawerComponent;
+  // public onExpandedChange(e: boolean): void {
+  //     this.drawer.expanded = true; // Forces it to stay open
+  // }
 
   public onSelect(ev: DrawerSelectEvent): void {
     console.log('ev: ', ev.item.text);
+    
     if(ev.item.text == 'New Quote'){
-       this.router.navigate(['/']);
+       this.router.navigate(['/migstepper']);
     }
     if(ev.item.text == 'My Accounts'){
        this.router.navigate(['/accounts']);
     }
     this.selected = ev.item.text;
+  }
+  
+  showSidebar():any {
+    //console.log('showSidebar ...')
+    var sidebar = document.querySelector('.sidebar') as HTMLElement;
+    return sidebar.style.display = 'flex'  
+  }
+  closeSidebar() : any{
+     //console.log('showSidebar ...')
+    var sidebar = document.querySelector('.sidebar') as HTMLElement;
+    return sidebar.style.display = 'none'
   }
 }

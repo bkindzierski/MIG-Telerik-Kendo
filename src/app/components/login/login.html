@@ -1,0 +1,71 @@
+<div class="login-container">
+     <div class="login-card">        
+        <div class="login-header">          
+            <h2>Welcome Back</h2>
+            <p>Log in to your account to continue</p>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+            <kendo-formfield>
+                <kendo-label [for]="email" text="Email Address"></kendo-label>
+                
+                <kendo-textbox
+                        formControlName="email"
+                        #email
+                        placeholder="name@company.com"
+                        [clearButton]="true"
+                        size="large"
+                        showSuccessIcon="initial"
+                        showErrorIcon="initial">
+
+                    <ng-template kendoTextBoxPrefixTemplate>
+                        <kendo-svg-icon [icon]="envelopeSvg"></kendo-svg-icon>
+                    </ng-template>
+
+                </kendo-textbox>
+
+                <kendo-formhint>Use your work or personal email</kendo-formhint>
+                <kendo-formerror>Please enter a valid email address</kendo-formerror>
+          </kendo-formfield>
+          <!-- Password markup -->
+          <kendo-formfield>
+            <kendo-label [for]="password" text="Password"></kendo-label>
+            <kendo-textbox
+                formControlName="password"
+                #password
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="Enter your password"
+                size="large"
+                showSuccessIcon="initial"
+                showErrorIcon="initial">
+
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svg-icon [icon]="lockSvg"></kendo-svg-icon>
+              </ng-template>
+
+              <ng-template kendoTextBoxSuffixTemplate>
+                <button kendoButton
+                        type="button"
+                        fillMode="flat"
+                        size="large"
+                        [svgIcon]="showPassword ? eyeSvg : eyeSlashSvg"
+                        (click)="togglePasswordVisibility()">
+                </button>
+              </ng-template>
+            </kendo-textbox>
+
+            <kendo-formhint>Must be at least 8 characters</kendo-formhint>
+            <kendo-formerror>Password is required</kendo-formerror>
+          </kendo-formfield>
+
+           <button kendoButton
+                    type="submit"
+                    themeColor="primary"
+                    size="large"
+                    [disabled]="!form.valid"
+                    class="submit-btn">
+                    Sign In
+          </button>
+        </form> 
+     </div>   
+</div>
+
