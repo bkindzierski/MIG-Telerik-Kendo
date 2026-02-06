@@ -64,7 +64,7 @@ kendo-drawer-container {
 nav{
   background-color: white;
   box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
-  display:sticky;
+  position:sticky;
 }
 nav ul{
   width: 95%;
