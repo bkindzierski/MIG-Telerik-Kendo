@@ -1,14 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 html,
-body,
-telerik-kendo {
-    padding: 0;
-    height: 100%;
-}
-
-telerik-kendo {
-    display: flex;
-    flex-direction: column;
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Viewport height */
+  margin: 0;  
 }
 
 .header{
@@ -89,7 +85,23 @@ nav a:hover{
   background-color: #f0f0f0;
 }
 
-// Top Nav //
+// end Top Nav //
+
+footer {
+  background-color: #504d4d; /* Dark background */
+  color: white; /* White text */
+  text-align: center; /* Centers the text within the footer */
+  padding: 10px 0; /* Adds vertical padding */
+  width: 100%; /* Ensures the footer spans the full width */
+  margin-top: 175px;
+  bottom:0
+}
+
+footer a {
+  color: #4da6ff; /* Styles links within the footer */
+  text-decoration: none; /* Removes underlines from links */
+  margin: 0 10px;
+}
 
 .topnav{
     display: flex;

@@ -5,6 +5,7 @@ import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
 import { KENDO_ICONS, SVGIcon } from "@progress/kendo-angular-icons";
 import { KENDO_DROPDOWNS } from "@progress/kendo-angular-dropdowns";
 import { KENDO_BUTTONS } from "@progress/kendo-angular-buttons";
+
 import {
   DrawerComponent,
   DrawerItem,
@@ -60,9 +61,9 @@ export class App {
   public items: Array<DrawerItem> = [
     { text: "New Quote", svgIcon: this.svgInbox, selected: true },
     { text: "My Accounts", svgIcon: this.svgBell },
-    { text: "Calendar", svgIcon: this.svgCalendar },
-    { text: "Attachments", svgIcon: this.svgAttachments },
-    { text: "Favorites", svgIcon: this.svgFavorites },
+    { text: "Billing", svgIcon: this.svgCalendar },
+    { text: "Personal Insurance", svgIcon: this.svgAttachments },
+    { text: "Claims", svgIcon: this.svgFavorites },
   ];
 
   constructor(private routes: RouterOutlet, private router: Router){

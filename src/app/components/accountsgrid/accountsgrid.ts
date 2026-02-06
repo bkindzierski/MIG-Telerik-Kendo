@@ -10,10 +10,11 @@ import { GridComponent, GridDataResult, KENDO_GRID, SelectableSettings, Selectio
 import { KENDO_SVGICON } from '@progress/kendo-angular-icons';
 import { editToolsIcon } from '@progress/kendo-svg-icons';
 import { State, process } from '@progress/kendo-data-query';
+import { Appbar } from '../../../app/navigation/appbar/appbar'
 
 @Component({
   selector: 'app-accountsgrid',
-  imports: [CommonModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, AsyncPipe],
+  imports: [Appbar,CommonModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, AsyncPipe],
   templateUrl: './accountsgrid.html',
   styleUrl: './accountsgrid.scss',
   providers: [AccountDataService],
