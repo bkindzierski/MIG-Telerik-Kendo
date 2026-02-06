@@ -112,12 +112,12 @@ export class Migstepper {
       validate: this.shouldValidate,
     },
     {
-      label: "Liability Limits",
+      label: "Personal Details",
       isValid: this.isStepValid,
       validate: this.shouldValidate,
     },
     {
-      label: "Location Details",
+      label: "Payment Details",
       isValid: this.isStepValid,
       validate: this.shouldValidate,
     },
