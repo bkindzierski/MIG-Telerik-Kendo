@@ -36,7 +36,12 @@
       <li><a href=#>Policy Inquiry</a></li>
       <li><a href=#>Resource/Tools</a></li>
       <li><a href=#>Premium Audit</a></li>
-      <li><a href=#>Logout</a></li>
+      @if(isloggedIn){
+        <li><a href=#>Logout</a></li>
+      }
+      @else{
+        <li><a href=#>Login</a></li>
+      }
     </ul>
     <!-- <ul>
       <li class="hideOnMobile"><a href=#>Personal</a></li>

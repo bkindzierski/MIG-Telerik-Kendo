@@ -30,6 +30,7 @@ import {
 })
 export class App {
   protected readonly title = signal('Merchants Group');
+  public isloggedIn:boolean = true;
 
   public menuIcon: SVGIcon = menuIcon;
   public allowCustom = true;
@@ -42,7 +43,7 @@ export class App {
   public svgCalendar = calendarIcon;
   public svgAttachments = envelopeLinkIcon;
   public svgFavorites = starOutlineIcon;
-
+  
    public listItems: Array<string> = [
     "Select",
     "Agency Bulletins",
