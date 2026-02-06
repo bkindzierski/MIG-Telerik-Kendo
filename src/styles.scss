@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body,
+telerik-kendo {
+    padding: 0;
+    height: 100%;
+}
+
+telerik-kendo {
+    display: flex;
+    flex-direction: column;
+}
+
 .header{
     height: 80px;
     position:sticky;
@@ -37,8 +49,47 @@
 }
 
 .migdrawer{
-    padding-top: 2px;
+    
 }
+
+kendo-drawer-container {
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+    .k-icon {
+    font-size: 20px;
+}
+
+// Top Nav //
+nav{
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+  display:sticky;
+}
+nav ul{
+  width: 95%;
+  list-style:none;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;  
+} 
+nav li{
+  height: 50px;
+}
+nav a {
+  height: 100%;
+  padding: 0 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color:black;
+  
+}
+nav a:hover{
+  background-color: #f0f0f0;
+}
+
+// Top Nav //
 
 .topnav{
     display: flex;

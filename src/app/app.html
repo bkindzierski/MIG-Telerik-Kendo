@@ -27,15 +27,35 @@
       </div>
     </div>
  </div>
+
+  <!--TOP NAV -->
+  <nav>
+    <ul class="sidebar">
+      <li (click)="closeSidebar()"><a href=#><img src="close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a></li>
+      <li><a href=#>New Business</a></li>
+      <li><a href=#>Policy Inquiry</a></li>
+      <li><a href=#>Resource/Tools</a></li>
+      <li><a href=#>Premium Audit</a></li>
+      <li><a href=#>Logout</a></li>
+    </ul>
+    <!-- <ul>
+      <li class="hideOnMobile"><a href=#>Personal</a></li>
+      <li class="hideOnMobile"><a href=#>Products</a></li>
+      <li class="hideOnMobile"><a href=#>About</a></li>
+      <li class="hideOnMobile"><a href=#>Login</a></li>
+      <li class="menu-button" (click)="showSidebar()"><a href="#"><img src="menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a></li>
+    </ul> -->
+  </nav>
+  <!--TOP NAV -->
+
  <div class="migdrawer">
-  <kendo-drawer-container>
+  <kendo-drawer-container>       
         <kendo-drawer
           #drawer
           [items]="items"
           mode="push"
-          [mini]="false"
-          [expanded]="true"
-          (expandedChange)="onExpandedChange($event)"
+          [mini]="true"
+          [expanded]="true"         
           (select)="onSelect($event)">
         </kendo-drawer>
         <kendo-drawer-content>
