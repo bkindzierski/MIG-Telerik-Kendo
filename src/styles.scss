@@ -159,23 +159,23 @@ footer a {
 }
 
 #asidebar ul li.active a{
-  color:#4da6ff;
+  color:#9d2746;
   svg{
-    fill:#4da6ff
+    fill:#9d2746
   }
 }
 #asidebar a, #asidebar .dropdown-btn, #asidebar .logo{
   border-radius: .5em;
   padding: .85em;
   text-decoration: none;
-  color:  #066cd2;
+  color:  #7f5963;
   display: flex;
   align-items: center;
   gap:1em;
 }
 #asidebar svg{
   flex-shrink: 0;
-  fill:#4da6ff;
+  fill:#7f5963;
 }
 #asidebar a span, #asidebar .dropdown-btn span{
   flex-grow: 1;
