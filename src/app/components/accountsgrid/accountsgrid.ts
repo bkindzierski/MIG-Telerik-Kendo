@@ -11,10 +11,11 @@ import { KENDO_SVGICON } from '@progress/kendo-angular-icons';
 import { editToolsIcon } from '@progress/kendo-svg-icons';
 import { State, process } from '@progress/kendo-data-query';
 import { Appbar } from '../../../app/navigation/appbar/appbar'
-
+import { KENDO_DIALOGS } from "@progress/kendo-angular-dialog";
+import { KENDO_BUTTON } from '@progress/kendo-angular-buttons';
 @Component({
   selector: 'app-accountsgrid',
-  imports: [Appbar,CommonModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, AsyncPipe],
+  imports: [Appbar,CommonModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, KENDO_DIALOGS, KENDO_BUTTON,AsyncPipe],
   templateUrl: './accountsgrid.html',
   styleUrl: './accountsgrid.scss',
   providers: [AccountDataService],
@@ -37,12 +38,18 @@ export class Accountsgrid {
     group:[]
   }
 
+  public opened = false;
+  public details: any;
   constructor(private accountService: AccountDataService){
     this.loadAccounts();
 
      effect(()=>{
       //console.log('effect accounts: ', this.getAccounts());
     });
+  }
+
+  public toggle(isOpened: boolean): void {
+    this.opened = isOpened;
   }
 
   ngOnInit(){
@@ -56,6 +63,8 @@ export class Accountsgrid {
   public onSelectionChange(args: SelectionEvent){
     const cellItem =  args.selectedRows[0].dataItem as any
     console.log('args', cellItem.details);
+    this.details = cellItem.details;
+    this.opened = true;
   }
 
   public selectableSettings: SelectableSettings = { 
