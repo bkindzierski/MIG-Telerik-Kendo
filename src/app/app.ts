@@ -1,5 +1,5 @@
 import { Component, signal, ViewChild } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { KENDO_DATEINPUTS } from '@progress/kendo-angular-dateinputs';
 import { KENDO_ICONS, SVGIcon } from "@progress/kendo-angular-icons";
@@ -24,7 +24,7 @@ import {
 
 @Component({
   selector: 'app-root',
-  imports: [KENDO_BUTTONS, KENDO_LAYOUT, KENDO_DATEINPUTS, KENDO_ICONS, KENDO_DROPDOWNS, FormsModule, RouterOutlet],
+  imports: [KENDO_BUTTONS, KENDO_LAYOUT, KENDO_DATEINPUTS, KENDO_ICONS, KENDO_DROPDOWNS, FormsModule, RouterOutlet,RouterLinkWithHref],
   providers: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
@@ -66,6 +66,9 @@ export class App {
     { text: "Claims", svgIcon: this.svgFavorites },
   ];
 
+  sideBar// =  document.getElementById('asidebar');
+  toggleBtn// = document.getElementById('toggle-btn') as HTMLButtonElement;
+
   constructor(private routes: RouterOutlet, private router: Router){
 
 
@@ -99,4 +102,36 @@ export class App {
     var sidebar = document.querySelector('.sidebar') as HTMLElement;
     return sidebar.style.display = 'none'
   }
+  
+   toggleSideBar(){
+    this.toggleBtn = document.getElementById('toggle-btn') as HTMLButtonElement;
+    this.sideBar = document.getElementById('asidebar');
+    this.sideBar.classList.toggle('close');
+    this.toggleBtn.classList.toggle('rotate');
+
+    Array.from(this.sideBar.getElementsByClassName('show')).forEach(ul =>{
+      //ul.classList.remove('show')
+      //ul.previousElementSibling.classList.remove('rotate')
+    });
+  }
+  
+  toggleSubMenu(element:string) : any{
+    //console.log('element: ', element);
+    if (element =='btn1') {
+      //console.log(`Button clicked! The button text is: `);
+      const btn1 = document.getElementById('btn1') as HTMLButtonElement;
+      btn1.nextElementSibling.classList.toggle('show');
+      btn1.classList.toggle('rotate');
+    }
+    else if(element =='btn2'){
+      const btn2 = document.getElementById('btn2') as HTMLButtonElement;
+      btn2.nextElementSibling.classList.toggle('show');
+      btn2.classList.toggle('rotate');
+    }
+    if(this.sideBar.classList.contains('close')){
+      this.sideBar.classList.toggle('close');
+      this.toggleBtn.classList.toggle('rotate');
+    }
+  }
+
 }
