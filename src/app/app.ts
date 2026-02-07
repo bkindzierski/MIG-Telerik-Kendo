@@ -107,7 +107,7 @@ export class App {
     this.toggleBtn = document.getElementById('toggle-btn') as HTMLButtonElement;
     this.sideBar = document.getElementById('asidebar');
     this.sideBar.classList.toggle('close');
-    this.toggleBtn.classList.toggle('rotate');
+    //this.toggleBtn.classList.toggle('rotate');
 
     Array.from(this.sideBar.getElementsByClassName('show')).forEach(ul =>{
       //ul.classList.remove('show')
@@ -128,10 +128,10 @@ export class App {
       btn2.nextElementSibling.classList.toggle('show');
       btn2.classList.toggle('rotate');
     }
-    if(this.sideBar.classList.contains('close')){
-      this.sideBar.classList.toggle('close');
-      this.toggleBtn.classList.toggle('rotate');
-    }
+    // if(this.sideBar.classList.contains('close')){
+    //   this.sideBar.classList.toggle('close');
+    //   this.toggleBtn.classList.toggle('rotate');
+    // }
   }
 
 }

@@ -55,7 +55,7 @@ export class Accountsgrid {
 
   public onSelectionChange(args: SelectionEvent){
     const cellItem =  args.selectedRows[0].dataItem as any
-    //console.log('args', cellItem.storeId);
+    console.log('args', cellItem.details);
   }
 
   public selectableSettings: SelectableSettings = { 
