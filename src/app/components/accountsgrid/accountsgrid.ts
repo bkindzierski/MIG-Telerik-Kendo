@@ -2,9 +2,10 @@ import { Component, computed, effect, input, OnInit, signal } from '@angular/cor
 import { CommonModule, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { Account } from '../../../app/model/account.model'
 import { AccountDataService } from '../../../../src/services/account-data.service';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { KENDO_LABELS } from "@progress/kendo-angular-label";
 import { GridComponent, GridDataResult, KENDO_GRID, SelectableSettings, SelectionEvent } from '@progress/kendo-angular-grid'
 import { KENDO_SVGICON } from '@progress/kendo-angular-icons';
@@ -13,9 +14,11 @@ import { State, process } from '@progress/kendo-data-query';
 import { Appbar } from '../../../app/navigation/appbar/appbar'
 import { KENDO_DIALOGS } from "@progress/kendo-angular-dialog";
 import { KENDO_BUTTON } from '@progress/kendo-angular-buttons';
+import { KENDO_INPUTS } from "@progress/kendo-angular-inputs";
+
 @Component({
   selector: 'app-accountsgrid',
-  imports: [Appbar,CommonModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, KENDO_DIALOGS, KENDO_BUTTON,AsyncPipe],
+  imports: [Appbar,CommonModule,ReactiveFormsModule,KENDO_LABELS,KENDO_GRID,KENDO_SVGICON, KENDO_DIALOGS, KENDO_BUTTON,KENDO_INPUTS],
   templateUrl: './accountsgrid.html',
   styleUrl: './accountsgrid.scss',
   providers: [AccountDataService],
@@ -33,19 +36,35 @@ export class Accountsgrid {
   /** GRID state */
   public gridState: State = {
     skip:0,
-    take:10,
+    take:20,
     sort:[],
     group:[]
   }
 
   public opened = false;
+  public title: string;
   public details: any;
-  constructor(private accountService: AccountDataService){
-    this.loadAccounts();
+  public form: FormGroup
+  get quoteid() { return this.form.get("quoteid"); }
 
-     effect(()=>{
-      //console.log('effect accounts: ', this.getAccounts());
-    });
+  formAccounts:any[] = [];
+  ;
+  constructor(private accountService: AccountDataService,private formBuilder: FormBuilder){
+    this.loadAccounts();
+    this.form  = this.formBuilder.group({});
+    effect(()=>{
+      //console.log('effect accounts: ', this.getAccounts());       
+      // this.formAccounts = this.getAccounts().data.map(acct=> acct);     
+      // this.formAccounts.forEach(item=>{
+      //   item.details.forEach(el=>{           
+      //       if(item != undefined && el != undefined)
+      //         this.form.addControl('quoteid' + item.id, new FormControl(el.quote));
+      //   });
+      // });
+    });   
+    // this.form = this.formBuilder.group({
+    //   quoteid: new FormControl({ value: "", disabled: true }),     
+    // });
   }
 
   public toggle(isOpened: boolean): void {
@@ -53,7 +72,7 @@ export class Accountsgrid {
   }
 
   ngOnInit(){
-
+   
   }
   public onDataStateChange(newState: State){
     this.gridState = newState;
@@ -62,9 +81,14 @@ export class Accountsgrid {
 
   public onSelectionChange(args: SelectionEvent){
     const cellItem =  args.selectedRows[0].dataItem as any
-    console.log('args', cellItem.details);
+    //console.log('args', cellItem.details);
+    this.title = cellItem.name;
     this.details = cellItem.details;
     this.opened = true;
+    //
+    //console.log('this.form: ', this.form);
+    //this.form.get('quoteid' + cellItem.id).setValue(this.details.quote)
+    //this.form.get("quoteid").disable();
   }
 
   public selectableSettings: SelectableSettings = { 

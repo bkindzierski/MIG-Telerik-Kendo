@@ -1,9 +1,12 @@
 
 
- <div class="container" style="margin-left:140px">
+ <div class="container" style="margin-left:140px;">
     <!-- <p>accountsgrid works!</p> -->
     <!-- <p>JSON formatted data:</p>
     <pre>{{ getAccounts() | json }}</pre> -->
+    <div>
+        
+    </div>
      <div class="centered-div">
         <kendo-svgicon [icon]="editIcon" size="xxlarge"></kendo-svgicon>
         <kendo-label>Account listing</kendo-label>
@@ -24,7 +27,7 @@
                     [sort]="sort"
                     (sortChange)="onSortChange($event)"> -->
              <kendo-grid [data]="getAccounts()" 
-                    [height]="610"
+                    [height]="710"
                     [selectable]="selectableSettings"
                     (selectionChange)="onSelectionChange($event)"
                     [pageable]="true"
@@ -52,20 +55,32 @@
  @if (opened){
     <kendo-window 
         (close)="toggle(false)" 
-        [width]="450" title="Account Details">
+        [width]="450" title={{title}}>
         <div style="text-align: left; margin: 30px;">
             <!-- <p>JSON formatted data:</p> -->
-            <!-- <pre>{{ details | json }}</pre> -->
+            <!-- <pre>{{ details | json }}</pre> -->            
             @for (item of details; track $index) {
                 <div>{{$index + 1}}<span>: </span>{{item.lob}}</div>
                 <div>Quote#: {{item.quote}}</div>
                 <div>Description: {{item.description}}</div>
                 <div>Premium: {{item.premium}}</div>
+                <!-- <form [formGroup]="form">
+                    <kendo-label
+                        class="k-display-block"
+                        [for]="quoteid"
+                        text="Quote Id">
+                    </kendo-label>
+                    <kendo-textbox
+                        #quoteid
+                        [style.width.px]="200"                        
+                        formControlName="quoteid{{$index + 1}}">
+                    </kendo-textbox>
+                </form> -->
                 <div style="margin-top: 20px;"></div>
             }           
      
         </div>
-        <div style="text-align: right; margin: 3px;">
+        <div style="text-align: center; margin: 3px;">
             <p>
                 <button
                     kendoButton
