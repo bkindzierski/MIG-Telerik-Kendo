@@ -55,15 +55,25 @@
  @if (opened){
     <kendo-window 
         (close)="toggle(false)" 
-        [width]="450" title={{title}}>
-        <div style="text-align: left; margin: 30px;">
+        title={{title}}
+        [themeColor]="windowThemeColor">
+        <div style="text-align: left;">
             <!-- <p>JSON formatted data:</p> -->
-            <!-- <pre>{{ details | json }}</pre> -->            
+            <!-- <pre>{{ details | json }}</pre> -->
+             <div class="detailsview">               
+                    <kendo-grid [data]="details"                             
+                            [selectable]="selectableSettings">      
+                    <kendo-grid-column field="lob" title="LOB" [width]="25"></kendo-grid-column>            
+                    <kendo-grid-column field="quote" title="Quote Id" [width]="25"></kendo-grid-column>
+                    <kendo-grid-column field="premium" title="Premium" [width]="25"></kendo-grid-column>
+                    <kendo-grid-column field="effdte" title="EFFDTE" [width]="25"></kendo-grid-column>                   
+                </kendo-grid>
+            </div>         
             @for (item of details; track $index) {
-                <div>{{$index + 1}}<span>: </span>{{item.lob}}</div>
+                <!-- <div>{{$index + 1}}<span>: </span>{{item.lob}}</div>
                 <div>Quote#: {{item.quote}}</div>
                 <div>Description: {{item.description}}</div>
-                <div>Premium: {{item.premium}}</div>
+                <div>Premium: {{item.premium}}</div> -->
                 <!-- <form [formGroup]="form">
                     <kendo-label
                         class="k-display-block"

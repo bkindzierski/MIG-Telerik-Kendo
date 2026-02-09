@@ -12,7 +12,7 @@ import { KENDO_SVGICON } from '@progress/kendo-angular-icons';
 import { editToolsIcon } from '@progress/kendo-svg-icons';
 import { State, process } from '@progress/kendo-data-query';
 import { Appbar } from '../../../app/navigation/appbar/appbar'
-import { KENDO_DIALOGS } from "@progress/kendo-angular-dialog";
+import { KENDO_DIALOGS, WindowThemeColor } from "@progress/kendo-angular-dialog";
 import { KENDO_BUTTON } from '@progress/kendo-angular-buttons';
 import { KENDO_INPUTS } from "@progress/kendo-angular-inputs";
 
@@ -48,7 +48,8 @@ export class Accountsgrid {
   get quoteid() { return this.form.get("quoteid"); }
 
   formAccounts:any[] = [];
-  ;
+  public windowThemeColor: WindowThemeColor = "primary";
+
   constructor(private accountService: AccountDataService,private formBuilder: FormBuilder){
     this.loadAccounts();
     this.form  = this.formBuilder.group({});
