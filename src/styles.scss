@@ -84,7 +84,6 @@ nav a {
 nav a:hover{
   background-color: #f0f0f0;
 }
-
 // end Top Nav //
 
 footer {
@@ -132,10 +131,10 @@ footer a {
   box-sizing: border-box;
   height: 100vh;
   width:250px;
-  padding: 5px 1em;
+  padding: 5px 1rem;
   background-color: #f0f0f0;
   border-right:  1px solid;
-  position: absolute;
+  position: fixed;
   top:148px;
   align-self: start;
   transition: 300ms ease-in-out;
@@ -149,14 +148,15 @@ footer a {
 
 #asidebar ul{
   list-style: none;
+  padding:0;
 }
-#asidebar > ul > li:first-child{
-  display: flex; 
-  margin-bottom: 0px;
-  .logo{
-    font-weight: 600;
-  }
-}
+// #asidebar > ul > li:first-child{
+//   display: flex; 
+//   margin-bottom: 0px;
+//   .logo{
+//     font-weight: 600;
+//   }
+// }
 
 #asidebar ul li.active a{
   color:#9d2746;
@@ -187,9 +187,9 @@ footer a {
   display:grid;
   grid-template-rows: 0fr;
   transition: 300ms ease-in-out;
-  > div{
-    overflow: hidden;
-  }
+    > div{
+      overflow: hidden;
+    }
 }
 #asidebar .sub-menu.show{
  grid-template-rows: 1fr;
@@ -211,6 +211,7 @@ footer a {
   font:inherit;
   cursor: pointer;
 }
+
 #toggle-btn{
   margin-left: auto;
   padding:1em;
